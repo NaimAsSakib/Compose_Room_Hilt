@@ -6,6 +6,10 @@ plugins {
     alias(libs.plugins.hilt.android)
 }
 
+hilt {
+    enableAggregatingTask = false
+}
+
 android {
     namespace = "com.cmedhealth.flutter.composeroomhilt"
     compileSdk = 36
@@ -38,6 +42,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 

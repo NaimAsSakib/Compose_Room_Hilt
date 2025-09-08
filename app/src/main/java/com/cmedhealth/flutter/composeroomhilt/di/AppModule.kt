@@ -1,5 +1,6 @@
 package com.cmedhealth.flutter.composeroomhilt.di
 
+import com.cmedhealth.flutter.composeroomhilt.BuildConfig
 import com.cmedhealth.flutter.composeroomhilt.utils.Constants
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -41,11 +42,12 @@ object AppModule {
     @Singleton
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         val interceptor = HttpLoggingInterceptor()
-
+        if (BuildConfig.DEBUG)
+            interceptor.level = HttpLoggingInterceptor.Level.BODY
+        else
             interceptor.level = HttpLoggingInterceptor.Level.NONE
         return interceptor
     }
-
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
