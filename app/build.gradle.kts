@@ -44,6 +44,22 @@ android {
         compose = true
         buildConfig = true
     }
+
+    flavorDimensions += listOf("version")
+    productFlavors {
+        create("dev") {
+            dimension = "version"
+            buildConfigField("String", "BASE_URL", "\"https://api-dev.yourapp.com/\"")
+        }
+        create("stage") {
+            dimension = "version"
+            buildConfigField("String", "BASE_URL", "\"https://api-stage.yourapp.com/\"")
+        }
+        create("prod") {
+            dimension = "version"
+            buildConfigField("String", "BASE_URL", "\"https://api-prod.yourapp.com/\"")
+        }
+    }
 }
 
 dependencies {

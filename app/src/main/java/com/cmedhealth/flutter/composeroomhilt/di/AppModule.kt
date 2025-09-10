@@ -52,7 +52,7 @@ object AppModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(Constants.URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(
                 GsonConverterFactory.create(
                     GsonBuilder().serializeNulls().create()
