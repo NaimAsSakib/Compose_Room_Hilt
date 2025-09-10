@@ -10,4 +10,8 @@ sealed class RootRoute {
     @Serializable
     data object Profile : RootRoute()
 
+    @Serializable
+    data object Auth : RootRoute()
+
+
 }

@@ -16,7 +16,13 @@ fun NavGraphBuilder.profileNavGraph(navController: NavController) {
        startDestination = ProfileRoute.Profile
    ){
        composable<ProfileRoute.Profile> {
-           ProfileScreen()
+           ProfileScreen(
+               logout = {
+                     navController.navigate(RootRoute.Auth) {
+                          popUpTo(RootRoute.Home) { inclusive = true }  //todo: Note- This will clear the backstack till home as Everything starts from Home
+                     }
+                }
+           )
        }
    }
 }

@@ -1,5 +1,6 @@
-package com.cmedhealth.flutter.composeroomhilt.ui.profile
+package com.cmedhealth.flutter.composeroomhilt.ui.auth
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import com.cmedhealth.flutter.composeroomhilt.ui.components.Greeting
 
 @Composable
-fun ProfileScreen(logout: () -> Unit = {}) {
+fun RegistrationScreen(onBack: () -> Unit = {}) {
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Box(
             modifier = Modifier
@@ -27,10 +28,10 @@ fun ProfileScreen(logout: () -> Unit = {}) {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                Greeting(name = "Profile")
+                Greeting(name = "Registration")
 
-                Button(onClick = logout) {
-                    Text("Logout")
+                Button(onClick = onBack) {
+                    Text("Back to Login")
                 }
             }
         }

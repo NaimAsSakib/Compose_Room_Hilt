@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.cmedhealth.flutter.composeroomhilt.navigation.graphs.authNavGraph
 import com.cmedhealth.flutter.composeroomhilt.navigation.graphs.homeNavGraph
 import com.cmedhealth.flutter.composeroomhilt.navigation.graphs.profileNavGraph
 import com.cmedhealth.flutter.composeroomhilt.navigation.routes.RootRoute
@@ -15,10 +16,11 @@ fun AppNavigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = RootRoute.Home,
+        startDestination = RootRoute.Auth,
         modifier = Modifier.fillMaxSize()
     ){
         homeNavGraph(navController)
         profileNavGraph(navController)
+        authNavGraph(navController)
     }
 }
