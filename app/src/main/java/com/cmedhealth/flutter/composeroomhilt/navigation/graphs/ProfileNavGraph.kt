@@ -4,6 +4,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.cmedhealth.flutter.composeroomhilt.navigation.routes.AuthRoute
 import com.cmedhealth.flutter.composeroomhilt.navigation.routes.HomeRoute
 import com.cmedhealth.flutter.composeroomhilt.navigation.routes.ProfileRoute
 import com.cmedhealth.flutter.composeroomhilt.navigation.routes.RootRoute
@@ -12,17 +13,24 @@ import com.cmedhealth.flutter.composeroomhilt.ui.profile.ProfileScreen
 
 
 fun NavGraphBuilder.profileNavGraph(navController: NavController) {
-   navigation<RootRoute.Profile>(
-       startDestination = ProfileRoute.Profile
-   ){
-       composable<ProfileRoute.Profile> {
-           ProfileScreen(
-               logout = {
-                     navController.navigate(RootRoute.Auth) {
-                          popUpTo(RootRoute.Home) { inclusive = true }  //todo: Note- This will clear the backstack till home as Everything starts from Home
-                     }
+    navigation<RootRoute.Profile>(
+        startDestination = ProfileRoute.Profile
+    ){
+        composable<ProfileRoute.Profile> {
+            ProfileScreen(
+                logout = {
+                    navController.navigate(RootRoute.Auth) {
+                        popUpTo(RootRoute.Home) { inclusive = true }
+                    }
+                },
+                navigateToRegistration = {
+                    navController.navigate(RootRoute.Auth) {
+                        popUpTo(RootRoute.Profile) { inclusive = true }
+                    }
+                    // Then navigate to registration after a small delay or in the next frame
+                    navController.navigate(AuthRoute.Registration)
                 }
-           )
-       }
-   }
+            )
+        }
+    }
 }

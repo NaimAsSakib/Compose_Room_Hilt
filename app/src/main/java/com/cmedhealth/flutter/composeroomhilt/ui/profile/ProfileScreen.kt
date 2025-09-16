@@ -15,7 +15,10 @@ import androidx.compose.ui.unit.dp
 import com.cmedhealth.flutter.composeroomhilt.ui.components.Greeting
 
 @Composable
-fun ProfileScreen(logout: () -> Unit = {}) {
+fun ProfileScreen(
+    logout: () -> Unit = {},
+    navigateToRegistration: () -> Unit = {}
+) {
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Box(
             modifier = Modifier
@@ -28,6 +31,10 @@ fun ProfileScreen(logout: () -> Unit = {}) {
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 Greeting(name = "Profile")
+
+                Button(onClick = navigateToRegistration) {
+                    Text("Go to Registration")
+                }
 
                 Button(onClick = logout) {
                     Text("Logout")
