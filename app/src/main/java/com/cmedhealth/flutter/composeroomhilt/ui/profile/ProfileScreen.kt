@@ -13,17 +13,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.cmedhealth.flutter.composeroomhilt.ui.components.Greeting
+import com.cmedhealth.flutter.composeroomhilt.ui.components.corecomponent.RootScreen
 
 @Composable
 fun ProfileScreen(
     logout: () -> Unit = {},
     navigateToRegistration: () -> Unit = {}
 ) {
-    Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+    RootScreen {
         Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding),
+            modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             Column(

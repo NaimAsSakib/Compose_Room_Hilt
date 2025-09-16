@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
-import com.cmedhealth.flutter.composeroomhilt.navigation.AppNavigation
+import com.cmedhealth.flutter.composeroomhilt.ui.MyApp
 import com.cmedhealth.flutter.composeroomhilt.ui.theme.ComposeRoomHiltTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,15 +15,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MyApp()
+            MainScreen()
         }
     }
 }
 
 @Composable
-fun MyApp() {
+fun MainScreen() {
     ComposeRoomHiltTheme{
-        AppNavigation()
+        MyApp()
     }
 }
 
