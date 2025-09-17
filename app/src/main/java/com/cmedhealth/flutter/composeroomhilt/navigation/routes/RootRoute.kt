@@ -13,5 +13,7 @@ sealed class RootRoute {
     @Serializable
     data object Auth : RootRoute()
 
+    @Serializable
+    data object Intro : RootRoute()
 
 }

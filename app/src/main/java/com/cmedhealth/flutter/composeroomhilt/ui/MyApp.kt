@@ -11,6 +11,7 @@ import com.cmedhealth.flutter.composeroomhilt.navigation.bottom_navigation.Botto
 import com.cmedhealth.flutter.composeroomhilt.navigation.bottom_navigation.BottomNavigationBar
 import com.cmedhealth.flutter.composeroomhilt.navigation.graphs.authNavGraph
 import com.cmedhealth.flutter.composeroomhilt.navigation.graphs.homeNavGraph
+import com.cmedhealth.flutter.composeroomhilt.navigation.graphs.introNavGraph
 import com.cmedhealth.flutter.composeroomhilt.navigation.graphs.profileNavGraph
 import com.cmedhealth.flutter.composeroomhilt.navigation.routes.RootRoute
 
@@ -30,9 +31,12 @@ fun MyApp() {
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = RootRoute.Auth,
+            startDestination = RootRoute.Intro,
             modifier = Modifier.padding(innerPadding)
         ) {
+            // Introduction/Carousel
+            introNavGraph(navController)
+
             // Auth navigation graph
             authNavGraph(navController)
 
